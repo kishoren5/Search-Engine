@@ -1,0 +1,20 @@
+# Example only. Review and supply deployment-specific secrets/config externally.
+service:
+  name: search-engine
+  environment: production
+  max_query_length: 512
+  max_top_k: 100
+  query_timeout_ms: 250
+retrieval:
+  default_mode: hybrid
+  lexical_candidates: 300
+  dense_candidates: 300
+  fusion: rrf
+  rrf_k: 60
+index:
+  active_manifest: /var/lib/search-engine/active.json
+observability:
+  log_level: INFO
+security:
+  admin_auth_required: true
+  rate_limit_enabled: true

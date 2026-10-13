@@ -1,0 +1,12 @@
+services:
+  search-api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      SEARCH_ENGINE_CONFIG: /app/config/development.yaml
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health/live')"]
+      interval: 15s
+      timeout: 3s
+      retries: 3

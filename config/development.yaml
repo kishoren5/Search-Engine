@@ -1,0 +1,16 @@
+service:
+  name: search-engine
+  environment: development
+  max_query_length: 512
+  max_top_k: 100
+  query_timeout_ms: 250
+retrieval:
+  default_mode: lexical
+  lexical_candidates: 200
+  dense_candidates: 200
+  fusion: rrf
+  rrf_k: 60
+index:
+  active_manifest: data/index/active.json
+observability:
+  log_level: INFO
